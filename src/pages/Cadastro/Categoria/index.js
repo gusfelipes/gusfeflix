@@ -21,11 +21,18 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:8080/categorias").then(async (resposta) => {
-      const res = await resposta.json();
-      setCategorias([...res]);
+    const URL_TOP = window.location.hostname.includes("localhost")
+      ? "http://localhost:8080/categorias"
+      : "https://gusfeflix.herokuapp.com/categorias";
+    fetch(URL_TOP).then(async (resposta) => {
+      if (resposta.ok) {
+        const res = await resposta.json();
+        setCategorias(res);
+        return;
+      }
+      throw new Error("Não foi possível conectar ao server");
     });
-  });
+  }, []);
 
   function handleChange(e) {
     setValue(e.target.getAttribute("name"), e.target.value);

@@ -1,0 +1,11 @@
+{
+  "categorias": [
+    { "id": 1, "nome": "Front End", "descricao": "bacaninha", "cor": "#d22d2" },
+    {
+      "id": 2,
+      "nome": "Back End",
+      "descricao": "meio bacaninha",
+      "cor": "#223d2"
+    }
+  ]
+}
